@@ -10,9 +10,6 @@
 #   ./scripts/push_processors/push_twitter.sh "test annotation" "/srv/images/NOAA-18-20210212-091356-MCIR.jpg" \
 #                                                               "/srv/images/NOAA-18-20210212-091356-HVC.jpg" \
 #                                                               "/srv/images/NOAA-18-20210212-091356-MCIR-precip.jpg"
-# hackery
-source ~/.ssh/mjmm-data.key
-aws s3 sync /srv/images s3://mjmm-data/satimgs/
 
 # import common lib and settings
 . "$HOME/.noaa-v2.conf"

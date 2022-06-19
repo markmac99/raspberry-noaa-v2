@@ -10,7 +10,6 @@
 #   ./demodulate_meteor_qpsk.sh /path/to/input.qpsk /path/to/output.wav
 
 # import common lib and settings
-export PATH=$PATH:/usr/local/bin # added as meteor_demod may be there
 . "$HOME/.noaa-v2.conf"
 . "$NOAA_HOME/scripts/common.sh"
 
