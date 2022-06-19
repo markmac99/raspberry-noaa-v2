@@ -78,6 +78,8 @@ Also, check out [THIS LINK](docs/webpanel_screenshots.md) for some screen shots 
 
 ## Compatibility
 
+**NOTE: ONLY 32bit OS is supported : Recommended is 'Bullseye' Release.**
+
 The original raspberry-noaa was tested on Raspberry Pi 2 and up. However, while it's possible this compatibility has been maintained
 with raspberry-noaa-v2, this version was developed and tested on a Raspberry Pi 4 - it has not been exhaustively tested on other variants
 of Raspberry Pi (but if you get it working on a version, please do submit a PR and mention it so this document can be updated!).
@@ -192,6 +194,9 @@ output file in `/var/log/raspberry-noaa-v2/output.log` to investigate potential 
 
 ## Additional Feature Information
 
+The decoding model has been changed with release 1.8 to default to using GNURADIO based capture via Python for both Meteor 
+(which was previously an option) and now also for NOAA. This will open the platform up for developers to integrate alternative hardware capture than rtl-sdr.
+
 For additional information on some of the capabilities included in this framework, see below:
 
   - [Meteor M2 Full Decoding](docs/meteor.md)
@@ -217,7 +222,7 @@ or form to the success of this repository/framework. Below are some direct contr
 * **[Pascal P.](https://github.com/Cirromulus)**: Frequency/spectrum analysis test scripts for visualizing frequency spectrum of environment.
 * **[Socowi's Time Functionality](https://stackoverflow.com/a/50434292)**: Time parser to calculate end date for scanner scripts.
 * **[Vince VE3ELB](https://github.com/ve3elb)**: Took on the invaluable task to create fully working images of RN2 for the PI and maintains [https://qsl.net/ve3elb/RaspiNOAA/](https://qsl.net/ve3elb/RaspiNOAA/).
-
+*  **[mihajlo2003petkovic](https://github.com/mihajlo2003petkovic)**: Updates to the web browser and general updating and debugging.
 ## Contributing
 
 Pull requests are welcome! Simply follow the below pattern:
