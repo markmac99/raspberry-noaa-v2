@@ -74,10 +74,10 @@ if pgrep "rtl_fm" > /dev/null; then
   exit 1
 fi
 
-log " "
-log " "
-log " "
-log "Receive NOAA Processes starting...."
+log " " "INFO"
+log " " "INFO"
+log " " "INFO"
+log "Receive NOAA Processes starting...." "INFO"
 
 if [ "$NOAA_RECEIVER" == "rtl_fm" ]; then
   log "Starting rtl_fm record" "INFO"
