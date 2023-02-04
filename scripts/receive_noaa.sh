@@ -393,6 +393,26 @@ if [ "${ENABLE_TWITTER_PUSH}" == "true" ]; then
   ${PUSH_PROC_DIR}/push_twitter.sh "${twitter_push_annotation}" $push_file_list
 fi
 
+# handle mastodon pushing if enabled
+if [ "${ENABLE_MASTODON_PUSH}" == "true" ]; then
+  # create push annotation 
+  # note this is NOT the annotation on the image, which is driven by the config/annotation/annotation.html.j2 file
+  mas_push_annotation=""
+  if [ "${GROUND_STATION_LOCATION}" != "" ]; then
+    mas_push_annotation="Ground Station: ${GROUND_STATION_LOCATION} "
+  fi
+  mas_push_annotation="${mas_push_annotation}${SAT_NAME} ${capture_start}"
+  mas_push_annotation="${mas_push_annotation} Max Elev: ${SAT_MAX_ELEVATION}° ${PASS_SIDE}"
+  mas_push_annotation="${mas_push_annotation} Sun Elevation: ${SUN_ELEV}°"
+  mas_push_annotation="${mas_push_annotation} Gain: ${gain}"
+  mas_push_annotation="${mas_push_annotation} | ${PASS_DIRECTION}"
+
+  mas_file_list="${IMAGE_FILE_BASE}-MSA.jpg ${IMAGE_FILE_BASE}-MCIR.jpg ${IMAGE_FILE_BASE}-HVCT-precip.jpg ${IMAGE_FILE_BASE}-HVC.jpg"
+
+  log "Pushing image enhancements to Mastodon" "INFO"
+  ${PUSH_PROC_DIR}/push_mastodon.sh "${mas_push_annotation}" $mas_file_list
+fi
+
 # handle matrix pushing if enabled
 if [ "${ENABLE_MATRIX_PUSH}" == "true" ]; then
     # create push annotation specific to matrix

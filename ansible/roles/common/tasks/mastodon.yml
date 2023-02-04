@@ -1,0 +1,9 @@
+---
+- name: install if push is enabled
+  become: yes
+  pip:
+    name: Mastodon.py
+    executable: pip3
+    state: present
+  when: enable_mastodon_push | bool
+...
